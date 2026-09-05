@@ -3,70 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>একটা ছোট্ট Sorry ❤️</title>
+  <title>For Zaifa ❤️</title>
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       min-height: 100vh;
+      overflow: hidden;
+      font-family: "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 50% 30%, #4a123f 0%, #19051d 45%, #070009 100%);
+      color: white;
+    }
+
+    /* Background stars */
+    .stars {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      opacity: .6;
+      animation: twinkle 2s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: .15; transform: scale(.6); }
+      to { opacity: 1; transform: scale(1.4); }
+    }
+
+    /* Floating hearts */
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 22px;
+      animation: rise linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(.5) rotate(0deg);
+        opacity: 0;
+      }
+      15% { opacity: .8; }
+      100% {
+        transform: translateY(-110vh) scale(1.5) rotate(25deg);
+        opacity: 0;
+      }
+    }
+
+    /* Main */
+    .screen {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #12001f, #3b092f, #160018);
-      font-family: "Segoe UI", sans-serif;
-      color: white;
-      overflow: hidden;
-    }
-
-    .hearts span {
-      position: absolute;
-      bottom: -50px;
-      font-size: 25px;
-      animation: float 7s linear infinite;
-      opacity: 0.7;
-    }
-
-    .hearts span:nth-child(1) { left: 10%; animation-delay: 0s; }
-    .hearts span:nth-child(2) { left: 25%; animation-delay: 2s; }
-    .hearts span:nth-child(3) { left: 45%; animation-delay: 4s; }
-    .hearts span:nth-child(4) { left: 65%; animation-delay: 1s; }
-    .hearts span:nth-child(5) { left: 85%; animation-delay: 3s; }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0;
-      }
-      20% { opacity: 0.8; }
-      100% {
-        transform: translateY(-110vh) scale(1.5);
-        opacity: 0;
-      }
+      padding: 20px;
     }
 
     .card {
-      width: 90%;
-      max-width: 430px;
-      padding: 35px 25px;
+      width: min(440px, 94vw);
+      padding: 38px 25px;
       text-align: center;
-      border-radius: 25px;
-      background: rgba(255,255,255,0.09);
-      backdrop-filter: blur(15px);
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-      animation: appear 1.5s ease;
-      z-index: 2;
+      border-radius: 30px;
+
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 0 40px rgba(255,70,170,.12),
+        0 25px 80px rgba(0,0,0,.55);
+
+      animation: cardIn 1.5s ease forwards;
     }
 
-    @keyframes appear {
+    @keyframes cardIn {
       from {
         opacity: 0;
-        transform: translateY(40px) scale(0.9);
+        transform: translateY(60px) scale(.85);
       }
       to {
         opacity: 1;
@@ -74,32 +111,55 @@
       }
     }
 
-    .heart {
-      font-size: 65px;
-      animation: beat 1.3s infinite;
-      margin-bottom: 10px;
+    .heartBig {
+      font-size: 75px;
+      animation: heartbeat 1.2s infinite;
+      filter: drop-shadow(0 0 20px rgba(255,60,150,.6));
     }
 
-    @keyframes beat {
-      0%,100% { transform: scale(1); }
-      50% { transform: scale(1.18); }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.18); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.12); }
+    }
+
+    .small {
+      margin-top: 12px;
+      color: #d9bfd2;
+      font-size: 15px;
+      letter-spacing: 2px;
     }
 
     h1 {
-      font-size: 32px;
-      margin-bottom: 18px;
+      margin-top: 12px;
+      font-size: 34px;
+      background: linear-gradient(90deg, #fff, #ff8fc8, #fff);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: shine 3s infinite;
     }
 
-    .name {
-      font-size: 22px;
+    @keyframes shine {
+      0% { background-position: 0%; }
+      50% { background-position: 100%; }
+      100% { background-position: 0%; }
+    }
+
+    .typing {
+      margin-top: 15px;
+      min-height: 30px;
+      color: #ffb3d8;
+      font-size: 21px;
       font-weight: bold;
-      margin-bottom: 20px;
     }
 
     .message {
-      font-size: 17px;
-      line-height: 1.8;
-      color: #f8eaf3;
+      margin-top: 25px;
+      line-height: 1.9;
+      font-size: 16px;
+      color: #f5e8f0;
     }
 
     .highlight {
@@ -107,105 +167,270 @@
       font-weight: bold;
     }
 
-    button {
-      margin-top: 25px;
-      padding: 13px 28px;
+    .btn {
+      margin-top: 28px;
+      padding: 14px 30px;
       border: none;
-      border-radius: 30px;
-      background: linear-gradient(90deg, #ff4f9a, #ff77b7);
+      border-radius: 50px;
       color: white;
       font-size: 16px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #e83e91, #ff70b5);
+      box-shadow: 0 8px 30px rgba(255,70,160,.35);
       cursor: pointer;
-      box-shadow: 0 8px 25px rgba(255,70,150,0.35);
-      transition: 0.3s;
+      transition: .3s;
     }
 
-    button:hover {
-      transform: scale(1.06);
+    .btn:hover {
+      transform: translateY(-3px) scale(1.05);
     }
 
-    #secret {
+    .secret {
       display: none;
-      margin-top: 22px;
-      font-size: 16px;
-      line-height: 1.7;
-      color: #ffd7e9;
-      animation: fade 1s ease;
-    }
-
-    @keyframes fade {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .footer {
       margin-top: 25px;
-      font-size: 12px;
-      color: #c9aabd;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,100,180,.08);
+      border: 1px solid rgba(255,150,210,.15);
+      line-height: 1.8;
+      animation: reveal .8s ease forwards;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .signature {
+      margin-top: 22px;
+      color: #ffacd2;
+      font-size: 14px;
+    }
+
+    /* Intro */
+    .intro {
+      position: fixed;
+      z-index: 20;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #080009;
+      animation: introOut 2s 3.5s forwards;
+      pointer-events: none;
+    }
+
+    .introText {
+      text-align: center;
+      font-size: 28px;
+      animation: introText 3s ease forwards;
+    }
+
+    .introText span {
+      display: block;
+      margin-top: 12px;
+      font-size: 18px;
+      color: #ff91c5;
+    }
+
+    @keyframes introText {
+      0% {
+        opacity: 0;
+        transform: scale(.7);
+      }
+      30%, 70% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.15);
+      }
+    }
+
+    @keyframes introOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    @media(max-width: 400px) {
+      h1 { font-size: 29px; }
+      .heartBig { font-size: 65px; }
+      .message { font-size: 15px; }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="hearts">
-    <span>❤️</span>
-    <span>💗</span>
-    <span>💕</span>
-    <span>💖</span>
-    <span>❤️</span>
+  <!-- Opening Animation -->
+  <div class="intro">
+    <div class="introText">
+      একটা কথা ছিল... ❤️
+      <span>শুধু Zaifa-র জন্য</span>
+    </div>
   </div>
 
-  <div class="card">
+  <!-- Stars -->
+  <div class="stars" id="stars"></div>
 
-    <div class="heart">❤️</div>
+  <!-- Floating Hearts -->
+  <div class="hearts" id="hearts"></div>
 
-    <h1>একটা ছোট্ট Sorry...</h1>
+  <main class="screen">
+    <div class="card">
 
-    <div class="name">
-      প্রিয় মানুষটা,
+      <div class="heartBig">❤️</div>
+
+      <div class="small">FOR SOMEONE SPECIAL</div>
+
+      <h1>Zaifa...</h1>
+
+      <div class="typing" id="typing"></div>
+
+      <div class="message">
+        জানি, আমার কোনো কথা বা কাজে তোমার মন খারাপ হয়েছে। 🥺
+        <br><br>
+
+        হয়তো সবসময় নিজের কথাগুলো ঠিকভাবে বোঝাতে পারি না,
+        কিন্তু তোমাকে কষ্ট দেওয়ার ইচ্ছা আমার কখনোই ছিল না।
+        <br><br>
+
+        তাই আজ শুধু একটা কথাই বলতে চাই—
+        <br>
+
+        <span class="highlight">
+          আমার লাল টুকটুকে বউ, আমাকে মাফ করে দিও। ❤️
+        </span>
+
+        <br><br>
+
+        রাগ থাকলে একটু রাগ করে থেকো,
+        অভিমান থাকলে অভিমান করো...
+        কিন্তু আমার সাথে কথা বলা বন্ধ কোরো না। 🥺
+      </div>
+
+      <button class="btn" onclick="showSorry()">
+        আমার একটা কথা আছে 💌
+      </button>
+
+      <div class="secret" id="secret">
+        আমি নিখুঁত নই,
+        ভুল আমার হতেই পারে।
+        কিন্তু তোমাকে কষ্ট দিয়ে সেই ভুলটাকে
+        ঠিক মনে করার মানুষও আমি নই।
+        <br><br>
+
+        <span class="highlight">
+          সত্যিই Sorry, Zaifa। ❤️
+        </span>
+
+        <br><br>
+
+        <b>তোমার লাল টুকটুকে বউ-এর কাছে ক্ষমাপ্রার্থী। 🌸</b>
+      </div>
+
+      <div class="signature">
+        Made with a genuine apology ❤️
+      </div>
+
     </div>
-
-    <div class="message">
-      জানি, আমার কথায় বা কাজে তোমার মন খারাপ হয়েছে।<br><br>
-
-      বিশ্বাস করো, তোমাকে কষ্ট দেওয়ার ইচ্ছা আমার ছিল না।
-      কখনো কখনো নিজের ভুল বুঝতে একটু দেরি হয়ে যায়,
-      কিন্তু তোমার মন খারাপের বিষয়টা বুঝতে পারার পর
-      সত্যিই খারাপ লাগছে।<br><br>
-
-      <span class="highlight">
-        আমি আমার ভুলের জন্য সত্যিই Sorry। ❤️
-      </span>
-      <br><br>
-
-      রাগ করো, অভিমান করো—
-      কিন্তু একদম চুপ করে থেকো না।
-      কথা বলে সবকিছু ঠিক করে নিতে চাই।
-    </div>
-
-    <button onclick="showMessage()">
-      একটা কথা শুনবে? 💌
-    </button>
-
-    <div id="secret">
-      “সবসময় ঠিক হতে পারি না,
-      কিন্তু ভুল বুঝতে পারলে ঠিক করার চেষ্টা করবো।
-      তোমার হাসিটা আমার কাছে অনেক মূল্যবান।” ❤️
-      <br><br>
-      <b>— তোমার কাছে ক্ষমা চাওয়া মানুষটা 🥺</b>
-    </div>
-
-    <div class="footer">
-      Made with a sincere apology ❤️
-    </div>
-
-  </div>
+  </main>
 
   <script>
-    function showMessage() {
-      document.getElementById("secret").style.display = "block";
+
+    /* Typing animation */
+    const text = "আমার লাল টুকটুকে বউ ❤️";
+    const typing = document.getElementById("typing");
+
+    let i = 0;
+
+    function typeText() {
+      if (i < text.length) {
+        typing.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeText, 100);
+      }
     }
+
+    setTimeout(typeText, 3800);
+
+
+    /* Stars */
+    const stars = document.getElementById("stars");
+
+    for (let i = 0; i < 70; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+
+      star.style.left = Math.random() * 100 + "%";
+      star.style.top = Math.random() * 100 + "%";
+      star.style.animationDelay = Math.random() * 3 + "s";
+
+      stars.appendChild(star);
+    }
+
+
+    /* Floating hearts */
+    const hearts = document.getElementById("hearts");
+
+    const emojis = ["❤️", "💗", "💕", "💖", "💓"];
+
+    for (let i = 0; i < 25; i++) {
+      const heart = document.createElement("div");
+
+      heart.className = "heart";
+      heart.innerHTML =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+      heart.style.left = Math.random() * 100 + "%";
+      heart.style.animationDuration =
+        (5 + Math.random() * 6) + "s";
+
+      heart.style.animationDelay =
+        Math.random() * 8 + "s";
+
+      heart.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+      hearts.appendChild(heart);
+    }
+
+
+    /* Secret message */
+    function showSorry() {
+
+      const secret = document.getElementById("secret");
+
+      secret.style.display = "block";
+
+      document.querySelector(".btn").innerText =
+        "এই কথাটা মনে রেখো ❤️";
+
+      // Extra hearts
+      for (let i = 0; i < 12; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+
+        heart.style.left = (40 + Math.random() * 20) + "%";
+        heart.style.bottom = "30%";
+        heart.style.animationDuration = "3s";
+
+        hearts.appendChild(heart);
+      }
+    }
+
   </script>
 
 </body>
