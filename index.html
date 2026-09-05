@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>একটা ছোট্ট Sorry ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #12001f, #3b092f, #160018);
+      font-family: "Segoe UI", sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hearts span {
+      position: absolute;
+      bottom: -50px;
+      font-size: 25px;
+      animation: float 7s linear infinite;
+      opacity: 0.7;
+    }
+
+    .hearts span:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .hearts span:nth-child(2) { left: 25%; animation-delay: 2s; }
+    .hearts span:nth-child(3) { left: 45%; animation-delay: 4s; }
+    .hearts span:nth-child(4) { left: 65%; animation-delay: 1s; }
+    .hearts span:nth-child(5) { left: 85%; animation-delay: 3s; }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      20% { opacity: 0.8; }
+      100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .card {
+      width: 90%;
+      max-width: 430px;
+      padding: 35px 25px;
+      text-align: center;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.09);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+      animation: appear 1.5s ease;
+      z-index: 2;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .heart {
+      font-size: 65px;
+      animation: beat 1.3s infinite;
+      margin-bottom: 10px;
+    }
+
+    @keyframes beat {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 18px;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #f8eaf3;
+    }
+
+    .highlight {
+      color: #ff9dcc;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 13px 28px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #ff4f9a, #ff77b7);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(255,70,150,0.35);
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.06);
+    }
+
+    #secret {
+      display: none;
+      margin-top: 22px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #ffd7e9;
+      animation: fade 1s ease;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 12px;
+      color: #c9aabd;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hearts">
+    <span>❤️</span>
+    <span>💗</span>
+    <span>💕</span>
+    <span>💖</span>
+    <span>❤️</span>
+  </div>
+
+  <div class="card">
+
+    <div class="heart">❤️</div>
+
+    <h1>একটা ছোট্ট Sorry...</h1>
+
+    <div class="name">
+      প্রিয় মানুষটা,
+    </div>
+
+    <div class="message">
+      জানি, আমার কথায় বা কাজে তোমার মন খারাপ হয়েছে।<br><br>
+
+      বিশ্বাস করো, তোমাকে কষ্ট দেওয়ার ইচ্ছা আমার ছিল না।
+      কখনো কখনো নিজের ভুল বুঝতে একটু দেরি হয়ে যায়,
+      কিন্তু তোমার মন খারাপের বিষয়টা বুঝতে পারার পর
+      সত্যিই খারাপ লাগছে।<br><br>
+
+      <span class="highlight">
+        আমি আমার ভুলের জন্য সত্যিই Sorry। ❤️
+      </span>
+      <br><br>
+
+      রাগ করো, অভিমান করো—
+      কিন্তু একদম চুপ করে থেকো না।
+      কথা বলে সবকিছু ঠিক করে নিতে চাই।
+    </div>
+
+    <button onclick="showMessage()">
+      একটা কথা শুনবে? 💌
+    </button>
+
+    <div id="secret">
+      “সবসময় ঠিক হতে পারি না,
+      কিন্তু ভুল বুঝতে পারলে ঠিক করার চেষ্টা করবো।
+      তোমার হাসিটা আমার কাছে অনেক মূল্যবান।” ❤️
+      <br><br>
+      <b>— তোমার কাছে ক্ষমা চাওয়া মানুষটা 🥺</b>
+    </div>
+
+    <div class="footer">
+      Made with a sincere apology ❤️
+    </div>
+
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("secret").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
