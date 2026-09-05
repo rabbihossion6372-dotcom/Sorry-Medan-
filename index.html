@@ -4,223 +4,310 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sorry Zaifa ❤️</title>
+<title>For Zaifa ❤️</title>
+
+<!-- Beautiful fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-body{
-    height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:
-    radial-gradient(circle at center,#4b123d 0%,#19051c 45%,#050006 100%);
-    font-family:Arial,sans-serif;
-    color:white;
+html,body{
+    width:100%;
+    height:100%;
 }
 
-/* =========================
-   SORRY SCREEN
-========================= */
+body{
+    overflow:hidden;
 
-.sorryScreen{
+    background:
+    radial-gradient(circle at 50% 35%,
+        #541542 0%,
+        #27091f 35%,
+        #0d0310 75%,
+        #030004 100%);
+
+    color:white;
+
+    font-family:
+    "Poppins",
+    "Noto Serif Bengali",
+    sans-serif;
+}
+
+
+/* =================================
+   CANVAS
+================================= */
+
+#canvas{
     position:fixed;
     inset:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+}
+
+
+/* =================================
+   GLOW
+================================= */
+
+.glow{
+    position:fixed;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,72,165,.22),
+        transparent 70%
+    );
+
+    filter:blur(30px);
+
+    pointer-events:none;
+}
+
+
+/* =================================
+   SORRY SEQUENCE
+================================= */
+
+#sorryStage{
+
+    position:fixed;
+
+    inset:0;
+
     display:flex;
+
     justify-content:center;
     align-items:center;
-    z-index:20;
+
+    z-index:10;
+
+    pointer-events:none;
 }
+
 
 .sorry{
-    position:absolute;
-    font-size:65px;
-    font-weight:bold;
 
-    color:#ff9dcc;
+    position:absolute;
+
+    font-family:"Poppins",sans-serif;
+
+    font-size:clamp(42px,12vw,78px);
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    color:#ffb1d8;
 
     text-shadow:
-    0 0 10px #ff3f9d,
-    0 0 30px #ff3f9d,
-    0 0 60px #ff3f9d;
+
+    0 0 10px #ff4da6,
+    0 0 30px #ff4da6,
+    0 0 70px rgba(255,40,150,.7);
 
     opacity:0;
-    transform:scale(.2);
-}
 
-.sorry.animate{
-    animation:sorryAnimation .75s ease forwards;
-}
-
-@keyframes sorryAnimation{
-
-    0%{
-        opacity:0;
-        transform:scale(.2);
-    }
-
-    25%{
-        opacity:1;
-        transform:scale(1.2);
-    }
-
-    45%{
-        transform:scale(1);
-    }
-
-    75%{
-        opacity:1;
-    }
-
-    100%{
-        opacity:0;
-        transform:scale(1.5);
-    }
 }
 
 
-/* =========================
-   MAIN CARD
-========================= */
+/* =================================
+   MAIN CONTENT
+================================= */
+
+#main{
+
+    position:relative;
+
+    z-index:5;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+}
+
 
 .card{
-    width:90%;
-    max-width:440px;
+
+    width:min(450px,94vw);
 
     padding:35px 25px;
 
     text-align:center;
 
-    background:rgba(255,255,255,.08);
+    border-radius:32px;
 
-    border:1px solid rgba(255,255,255,.18);
+    background:
+    rgba(255,255,255,.075);
 
-    border-radius:30px;
+    border:
+    1px solid rgba(255,255,255,.16);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
 
     box-shadow:
-    0 20px 80px rgba(0,0,0,.6);
+
+    0 20px 80px rgba(0,0,0,.6),
+
+    inset 0 0 30px rgba(255,255,255,.025);
 
     opacity:0;
-    transform:translateY(50px) scale(.9);
 
-    transition:
-    opacity 1.5s ease,
-    transform 1.5s ease;
-}
+    transform:
+    translateY(50px)
+    scale(.85);
 
-.card.show{
-    opacity:1;
-    transform:translateY(0) scale(1);
 }
 
 
-/* =========================
+/* =================================
    HEART
-========================= */
+================================= */
 
 .bigHeart{
+
     font-size:75px;
 
+    display:inline-block;
+
     filter:
-    drop-shadow(0 0 20px rgba(255,70,160,.7));
+    drop-shadow(
+        0 0 25px rgba(255,60,160,.75)
+    );
 
-    animation:heartbeat 1.2s infinite;
-}
-
-@keyframes heartbeat{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    20%{
-        transform:scale(1.2);
-    }
-
-    40%{
-        transform:scale(1);
-    }
-
-    60%{
-        transform:scale(1.12);
-    }
 }
 
 
-/* =========================
-   TEXT
-========================= */
+.title{
 
-h1{
-    margin-top:15px;
-    font-size:35px;
+    margin-top:12px;
+
+    font-size:34px;
+
+    font-weight:700;
 
     background:
     linear-gradient(
-    90deg,
-    #fff,
-    #ff8fc8,
-    #fff
+        90deg,
+        #ffffff,
+        #ff9dcc,
+        #ffffff
     );
 
     background-size:200%;
 
     -webkit-background-clip:text;
+
     color:transparent;
 
-    animation:shine 3s infinite;
+    animation:titleGlow 3s linear infinite;
+
 }
 
-@keyframes shine{
+
+@keyframes titleGlow{
 
     0%{
         background-position:0%;
     }
 
-    50%{
-        background-position:100%;
+    100%{
+        background-position:200%;
     }
 
-    100%{
-        background-position:0%;
-    }
 }
 
+
 .wife{
-    margin-top:10px;
+
+    margin-top:8px;
 
     color:#ff9dcc;
 
-    font-size:22px;
+    font-family:
+    "Noto Serif Bengali",
+    serif;
 
-    font-weight:bold;
+    font-size:23px;
+
+    font-weight:700;
+
 }
+
+
+.line{
+
+    width:70px;
+
+    height:2px;
+
+    margin:18px auto;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #ff7fba,
+        transparent
+    );
+
+}
+
 
 .message{
 
-    margin-top:25px;
+    font-family:
+    "Noto Serif Bengali",
+    serif;
 
     font-size:16px;
 
-    line-height:1.9;
+    line-height:2;
 
-    color:#f7e9f1;
+    color:#f6e8ef;
+
 }
+
 
 .highlight{
-    color:#ff9dcc;
-    font-weight:bold;
+
+    color:#ffacd2;
+
+    font-weight:700;
+
 }
 
-button{
+
+.btn{
 
     margin-top:25px;
 
@@ -232,136 +319,106 @@ button{
 
     color:white;
 
-    font-size:16px;
+    font-family:"Poppins",sans-serif;
 
-    font-weight:bold;
+    font-size:15px;
 
-    background:
-    linear-gradient(
-    90deg,
-    #e83c91,
-    #ff76b6
-    );
-
-    box-shadow:
-    0 8px 30px rgba(255,70,160,.35);
+    font-weight:600;
 
     cursor:pointer;
 
+    background:
+    linear-gradient(
+        90deg,
+        #df3b8f,
+        #ff76b8
+    );
+
+    box-shadow:
+    0 8px 30px rgba(255,50,150,.3);
+
     transition:.3s;
-}
 
-button:hover{
-    transform:scale(1.06);
 }
 
 
-/* =========================
-   SECRET MESSAGE
-========================= */
+.btn:hover{
+
+    transform:
+    translateY(-3px)
+    scale(1.04);
+
+}
+
 
 .secret{
 
     display:none;
 
-    margin-top:25px;
+    margin-top:22px;
 
-    padding:20px;
+    padding:18px;
 
     border-radius:20px;
 
-    background:rgba(255,100,180,.08);
+    background:
+    rgba(255,90,170,.07);
 
     border:
-    1px solid rgba(255,150,210,.15);
+    1px solid rgba(255,150,210,.14);
 
-    line-height:1.8;
+    font-family:
+    "Noto Serif Bengali",
+    serif;
 
-    color:#ffd9e9;
+    line-height:1.9;
 
-    animation:reveal .8s ease;
-}
+    color:#ffdbea;
 
-@keyframes reveal{
-
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
 
-/* =========================
-   FLOATING HEARTS
-========================= */
+/* =================================
+   FLOATING HEART
+================================= */
 
-.floatingHeart{
+.floatHeart{
 
     position:fixed;
+
+    z-index:2;
 
     bottom:-50px;
 
     pointer-events:none;
 
-    animation:floatUp linear forwards;
+    font-size:20px;
 
-    opacity:0;
-
-    z-index:2;
-}
-
-@keyframes floatUp{
-
-    0%{
-        transform:
-        translateY(0)
-        scale(.5)
-        rotate(0deg);
-
-        opacity:0;
-    }
-
-    20%{
-        opacity:.8;
-    }
-
-    100%{
-        transform:
-        translateY(-110vh)
-        scale(1.5)
-        rotate(25deg);
-
-        opacity:0;
-    }
 }
 
 
-/* =========================
+/* =================================
    MOBILE
-========================= */
+================================= */
 
 @media(max-width:400px){
 
-    .sorry{
-        font-size:50px;
+    .card{
+        padding:30px 20px;
     }
 
-    h1{
-        font-size:30px;
+    .title{
+        font-size:29px;
     }
 
     .wife{
-        font-size:19px;
+        font-size:20px;
     }
 
     .message{
         font-size:15px;
     }
+
 }
 
 </style>
@@ -371,49 +428,63 @@ button:hover{
 <body>
 
 
-<!-- =========================
-     SORRY 1 → 100
-========================= -->
+<canvas id="canvas"></canvas>
 
-<div class="sorryScreen" id="sorryScreen"></div>
+<div class="glow" id="glow"></div>
 
 
-<!-- =========================
-     MAIN MESSAGE
-========================= -->
+<!-- Sorry 1 → 100 -->
+
+<div id="sorryStage"></div>
+
+
+<!-- =================================
+     MAIN CARD
+================================= -->
+
+<main id="main">
 
 <div class="card" id="card">
 
-    <div class="bigHeart">
+    <div class="bigHeart" id="heart">
         ❤️
     </div>
 
-    <h1>
+
+    <div class="title">
         Zaifa...
-    </h1>
+    </div>
+
 
     <div class="wife">
         আমার লাল টুকটুকে বউ ❤️
     </div>
 
 
+    <div class="line"></div>
+
+
     <div class="message">
 
         জানি, আমার ভুল হয়েছে। 🥺
 
-        <br><br>
+        <br>
 
         তোমার মন খারাপ করার জন্য
         সত্যিই আমার অনেক খারাপ লাগছে।
 
         <br><br>
 
-        কখনো কখনো মানুষ নিজের ভুলটা
-        বুঝতে একটু দেরি করে,
+        হয়তো সবসময় নিজের কথাগুলো
+        ঠিকভাবে বোঝাতে পারি না,
         কিন্তু তোমাকে কষ্ট দেওয়ার
         ইচ্ছা আমার কখনোই ছিল না।
 
         <br><br>
+
+        তাই আজ শুধু একটা কথাই বলতে চাই—
+
+        <br>
 
         <span class="highlight">
             আমার লাল টুকটুকে বউ,
@@ -433,22 +504,29 @@ button:hover{
     </div>
 
 
-    <button onclick="showSecret()">
-        আরেকটা কথা আছে... 💌
+    <button
+        class="btn"
+        id="btn"
+        onclick="reveal()">
+
+        একটা কথা শুনবে? 💌
+
     </button>
 
 
-    <div class="secret" id="secret">
+    <div
+        class="secret"
+        id="secret">
 
-        তুমি আমার কাছে গুরুত্বপূর্ণ। ❤️
+        তুমি আমার কাছে অনেক গুরুত্বপূর্ণ। ❤️
 
         <br><br>
 
-        আমি নিখুঁত নই,
+        আমি নিখুঁত নই।
         ভুল আমার হতেই পারে।
 
-        কিন্তু ভুল বুঝতে পারলে
-        সেটা ঠিক করার চেষ্টা করবো।
+        কিন্তু তোমাকে কষ্ট দিয়ে
+        সেই ভুলটাকে ঠিক মনে করতে চাই না।
 
         <br><br>
 
@@ -458,112 +536,204 @@ button:hover{
 
         <br><br>
 
-        <b>
-            আমার লাল টুকটুকে বউ,
-            আর রাগ করে থেকো না। 🥺🌸
-        </b>
+        আমার লাল টুকটুকে বউ,
+        আর রাগ করে থেকো না। 🌸
 
     </div>
 
 </div>
 
+</main>
+
 
 <script>
 
 /* =================================
-   SORRY 1 → 100 ANIMATION
+   SORRY 1 → 100
 ================================= */
 
-const sorryScreen =
-document.getElementById("sorryScreen");
+const stage =
+document.getElementById("sorryStage");
 
 const card =
 document.getElementById("card");
 
 let number = 1;
 
-const total = 100;
+const total = 10;
 
-function showNextSorry(){
+
+/*
+
+প্রতি Sorry-এর animation:
+
+ছোট → বড় → glow → fade
+
+*/
+
+function nextSorry(){
 
     if(number > total){
 
-        // 100 শেষ হলে main card আসবে
+        gsap.to(stage,{
+            opacity:0,
+            duration:.8,
+            onComplete:()=>{
 
-        setTimeout(()=>{
+                stage.style.display="none";
 
-            card.classList.add("show");
+                gsap.to(card,{
+                    opacity:1,
+                    y:0,
+                    scale:1,
+                    duration:1.5,
+                    ease:"power3.out"
+                });
 
-        },500);
+                heartbeat();
+
+            }
+        });
 
         return;
     }
 
 
-    const sorry =
+    const el =
     document.createElement("div");
 
-    sorry.className="sorry";
+    el.className="sorry";
 
-    sorry.innerHTML=
+    el.innerHTML=
     "Sorry " + number + " ❤️";
 
 
-    sorryScreen.appendChild(sorry);
+    stage.appendChild(el);
 
 
-    // Animation start
+    gsap.fromTo(
+        el,
 
-    setTimeout(()=>{
+        {
+            opacity:0,
+            scale:.25,
+            rotation:-8
+        },
 
-        sorry.classList.add("animate");
+        {
+            opacity:1,
+            scale:1,
+            rotation:0,
+            duration:.35,
+            ease:"back.out(2)"
+        }
+    );
 
-    },30);
 
+    gsap.to(el,{
+        opacity:0,
+        scale:1.45,
+        rotation:8,
+        duration:.35,
+        delay:.35,
+        ease:"power2.in",
+        onComplete:()=>{
 
-    // পরের Sorry
+            el.remove();
 
-    setTimeout(()=>{
+            number++;
 
-        sorry.remove();
+            nextSorry();
 
-        number++;
-
-        showNextSorry();
-
-    },750);
+        }
+    });
 
 }
 
 
-/* Start */
+/* Start Sorry sequence */
 
-showNextSorry();
+nextSorry();
 
+
+
+/* =================================
+   HEARTBEAT
+================================= */
+
+function heartbeat(){
+
+    gsap.to("#heart",{
+
+        scale:1.18,
+
+        duration:.6,
+
+        repeat:-1,
+
+        yoyo:true,
+
+        ease:"power1.inOut"
+
+    });
+
+}
+
+
+/* =================================
+   SECRET MESSAGE
+================================= */
+
+function reveal(){
+
+    const secret =
+    document.getElementById("secret");
+
+    const btn =
+    document.getElementById("btn");
+
+
+    secret.style.display="block";
+
+    btn.innerHTML=
+    "এই কথাটা মনে রেখো ❤️";
+
+
+    gsap.from(secret,{
+        opacity:0,
+        y:25,
+        duration:1,
+        ease:"power3.out"
+    });
+
+
+    burstHearts();
+
+}
 
 
 /* =================================
    FLOATING HEARTS
 ================================= */
 
-function createFloatingHeart(){
+const emojis=[
+    "❤️",
+    "💗",
+    "💕",
+    "💖",
+    "💓",
+    "🌸"
+];
 
-    const heart =
+
+function floatingHeart(){
+
+    const h =
     document.createElement("div");
 
-    heart.className=
-    "floatingHeart";
+    h.className="floatHeart";
 
-    const emojis=[
-        "❤️",
-        "💗",
-        "💕",
-        "💖",
-        "💓",
-        "🌸"
-    ];
-
-    heart.innerHTML=
+    h.innerHTML=
     emojis[
         Math.floor(
             Math.random()*emojis.length
@@ -571,50 +741,236 @@ function createFloatingHeart(){
     ];
 
 
-    heart.style.left=
+    h.style.left=
     Math.random()*100+"vw";
 
 
-    heart.style.fontSize=
-    (15+Math.random()*25)+"px";
+    document.body.appendChild(h);
 
 
-    heart.style.animationDuration=
-    (5+Math.random()*5)+"s";
+    gsap.fromTo(
+        h,
 
+        {
+            y:0,
+            opacity:0,
+            scale:.5
+        },
 
-    document.body.appendChild(heart);
+        {
+            y:"-110vh",
+            opacity:.8,
+            scale:1.4,
+            rotation:30,
 
+            duration:
+            5+Math.random()*5,
 
-    setTimeout(()=>{
+            ease:"none",
 
-        heart.remove();
+            onComplete:()=>{
+                h.remove();
+            }
+        }
+    );
 
-    },10000);
 }
 
 
-/* প্রতি 400ms-এ একটি heart */
-
 setInterval(
-    createFloatingHeart,
-    400
+    floatingHeart,
+    500
 );
 
 
 
 /* =================================
-   SECRET MESSAGE
+   HEART BURST
 ================================= */
 
-function showSecret(){
+function burstHearts(){
 
-    const secret =
-    document.getElementById("secret");
+    for(let i=0;i<18;i++){
 
-    secret.style.display="block";
+        const h =
+        document.createElement("div");
+
+        h.innerHTML="❤️";
+
+        h.style.position="fixed";
+
+        h.style.left="50%";
+
+        h.style.top="55%";
+
+        h.style.zIndex="30";
+
+        h.style.pointerEvents="none";
+
+        document.body.appendChild(h);
+
+
+        gsap.to(h,{
+
+            x:
+            (Math.random()-.5)*500,
+
+            y:
+            (Math.random()-.5)*400,
+
+            scale:
+            .5+Math.random()*1.3,
+
+            opacity:0,
+
+            rotation:
+            Math.random()*360,
+
+            duration:
+            1.3+Math.random(),
+
+            ease:"power2.out",
+
+            onComplete:()=>{
+                h.remove();
+            }
+
+        });
+
+    }
 
 }
+
+
+/* =================================
+   CANVAS PARTICLES
+================================= */
+
+const canvas =
+document.getElementById("canvas");
+
+const ctx =
+canvas.getContext("2d");
+
+
+let particles=[];
+
+
+function resize(){
+
+    canvas.width=
+    window.innerWidth;
+
+    canvas.height=
+    window.innerHeight;
+
+}
+
+
+resize();
+
+window.addEventListener(
+    "resize",
+    resize
+);
+
+
+for(let i=0;i<100;i++){
+
+    particles.push({
+
+        x:
+        Math.random()*window.innerWidth,
+
+        y:
+        Math.random()*window.innerHeight,
+
+        r:
+        Math.random()*1.8+.3,
+
+        speed:
+        Math.random()*.4+.1,
+
+        alpha:
+        Math.random()*.7+.2
+
+    });
+
+}
+
+
+function particlesAnimation(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    particles.forEach(p=>{
+
+        p.y-=p.speed;
+
+
+        if(p.y<0){
+
+            p.y=
+            canvas.height;
+
+        }
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.r,
+            0,
+            Math.PI*2
+        );
+
+
+        ctx.fillStyle=
+        `rgba(255,180,220,${p.alpha})`;
+
+        ctx.fill();
+
+    });
+
+
+    requestAnimationFrame(
+        particlesAnimation
+    );
+
+}
+
+
+particlesAnimation();
+
+
+
+/* =================================
+   MOVING GLOW
+================================= */
+
+gsap.to("#glow",{
+
+    x:window.innerWidth*.5,
+
+    y:window.innerHeight*.2,
+
+    duration:5,
+
+    repeat:-1,
+
+    yoyo:true,
+
+    ease:"sine.inOut"
+
+});
 
 </script>
 
