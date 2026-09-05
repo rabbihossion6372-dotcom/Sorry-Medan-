@@ -1,437 +1,622 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Zaifa ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<title>Sorry Zaifa ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    radial-gradient(circle at center,#4b123d 0%,#19051c 45%,#050006 100%);
+    font-family:Arial,sans-serif;
+    color:white;
+}
+
+/* =========================
+   SORRY SCREEN
+========================= */
+
+.sorryScreen{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:20;
+}
+
+.sorry{
+    position:absolute;
+    font-size:65px;
+    font-weight:bold;
+
+    color:#ff9dcc;
+
+    text-shadow:
+    0 0 10px #ff3f9d,
+    0 0 30px #ff3f9d,
+    0 0 60px #ff3f9d;
+
+    opacity:0;
+    transform:scale(.2);
+}
+
+.sorry.animate{
+    animation:sorryAnimation .75s ease forwards;
+}
+
+@keyframes sorryAnimation{
+
+    0%{
+        opacity:0;
+        transform:scale(.2);
     }
 
-    body {
-      min-height: 100vh;
-      overflow: hidden;
-      font-family: "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 50% 30%, #4a123f 0%, #19051d 45%, #070009 100%);
-      color: white;
+    25%{
+        opacity:1;
+        transform:scale(1.2);
     }
 
-    /* Background stars */
-    .stars {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
+    45%{
+        transform:scale(1);
     }
 
-    .star {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background: white;
-      border-radius: 50%;
-      opacity: .6;
-      animation: twinkle 2s infinite alternate;
+    75%{
+        opacity:1;
     }
 
-    @keyframes twinkle {
-      from { opacity: .15; transform: scale(.6); }
-      to { opacity: 1; transform: scale(1.4); }
+    100%{
+        opacity:0;
+        transform:scale(1.5);
+    }
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.card{
+    width:90%;
+    max-width:440px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    border-radius:30px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 20px 80px rgba(0,0,0,.6);
+
+    opacity:0;
+    transform:translateY(50px) scale(.9);
+
+    transition:
+    opacity 1.5s ease,
+    transform 1.5s ease;
+}
+
+.card.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
+
+/* =========================
+   HEART
+========================= */
+
+.bigHeart{
+    font-size:75px;
+
+    filter:
+    drop-shadow(0 0 20px rgba(255,70,160,.7));
+
+    animation:heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
     }
 
-    /* Floating hearts */
-    .hearts {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
+    20%{
+        transform:scale(1.2);
     }
 
-    .heart {
-      position: absolute;
-      bottom: -50px;
-      font-size: 22px;
-      animation: rise linear infinite;
-      opacity: 0;
+    40%{
+        transform:scale(1);
     }
 
-    @keyframes rise {
-      0% {
-        transform: translateY(0) scale(.5) rotate(0deg);
-        opacity: 0;
-      }
-      15% { opacity: .8; }
-      100% {
-        transform: translateY(-110vh) scale(1.5) rotate(25deg);
-        opacity: 0;
-      }
+    60%{
+        transform:scale(1.12);
+    }
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+h1{
+    margin-top:15px;
+    font-size:35px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #fff,
+    #ff8fc8,
+    #fff
+    );
+
+    background-size:200%;
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+    animation:shine 3s infinite;
+}
+
+@keyframes shine{
+
+    0%{
+        background-position:0%;
     }
 
-    /* Main */
-    .screen {
-      position: relative;
-      z-index: 5;
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+    50%{
+        background-position:100%;
     }
 
-    .card {
-      width: min(440px, 94vw);
-      padding: 38px 25px;
-      text-align: center;
-      border-radius: 30px;
+    100%{
+        background-position:0%;
+    }
+}
 
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(18px);
+.wife{
+    margin-top:10px;
 
-      box-shadow:
-        0 0 40px rgba(255,70,170,.12),
-        0 25px 80px rgba(0,0,0,.55);
+    color:#ff9dcc;
 
-      animation: cardIn 1.5s ease forwards;
+    font-size:22px;
+
+    font-weight:bold;
+}
+
+.message{
+
+    margin-top:25px;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+    color:#f7e9f1;
+}
+
+.highlight{
+    color:#ff9dcc;
+    font-weight:bold;
+}
+
+button{
+
+    margin-top:25px;
+
+    padding:14px 30px;
+
+    border:0;
+
+    border-radius:50px;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    background:
+    linear-gradient(
+    90deg,
+    #e83c91,
+    #ff76b6
+    );
+
+    box-shadow:
+    0 8px 30px rgba(255,70,160,.35);
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.06);
+}
+
+
+/* =========================
+   SECRET MESSAGE
+========================= */
+
+.secret{
+
+    display:none;
+
+    margin-top:25px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:rgba(255,100,180,.08);
+
+    border:
+    1px solid rgba(255,150,210,.15);
+
+    line-height:1.8;
+
+    color:#ffd9e9;
+
+    animation:reveal .8s ease;
+}
+
+@keyframes reveal{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
     }
 
-    @keyframes cardIn {
-      from {
-        opacity: 0;
-        transform: translateY(60px) scale(.85);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floatingHeart{
+
+    position:fixed;
+
+    bottom:-50px;
+
+    pointer-events:none;
+
+    animation:floatUp linear forwards;
+
+    opacity:0;
+
+    z-index:2;
+}
+
+@keyframes floatUp{
+
+    0%{
+        transform:
+        translateY(0)
+        scale(.5)
+        rotate(0deg);
+
+        opacity:0;
     }
 
-    .heartBig {
-      font-size: 75px;
-      animation: heartbeat 1.2s infinite;
-      filter: drop-shadow(0 0 20px rgba(255,60,150,.6));
+    20%{
+        opacity:.8;
     }
 
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      15% { transform: scale(1.18); }
-      30% { transform: scale(1); }
-      45% { transform: scale(1.12); }
+    100%{
+        transform:
+        translateY(-110vh)
+        scale(1.5)
+        rotate(25deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:400px){
+
+    .sorry{
+        font-size:50px;
     }
 
-    .small {
-      margin-top: 12px;
-      color: #d9bfd2;
-      font-size: 15px;
-      letter-spacing: 2px;
+    h1{
+        font-size:30px;
     }
 
-    h1 {
-      margin-top: 12px;
-      font-size: 34px;
-      background: linear-gradient(90deg, #fff, #ff8fc8, #fff);
-      background-size: 200%;
-      -webkit-background-clip: text;
-      color: transparent;
-      animation: shine 3s infinite;
+    .wife{
+        font-size:19px;
     }
 
-    @keyframes shine {
-      0% { background-position: 0%; }
-      50% { background-position: 100%; }
-      100% { background-position: 0%; }
+    .message{
+        font-size:15px;
     }
+}
 
-    .typing {
-      margin-top: 15px;
-      min-height: 30px;
-      color: #ffb3d8;
-      font-size: 21px;
-      font-weight: bold;
-    }
-
-    .message {
-      margin-top: 25px;
-      line-height: 1.9;
-      font-size: 16px;
-      color: #f5e8f0;
-    }
-
-    .highlight {
-      color: #ff9dcc;
-      font-weight: bold;
-    }
-
-    .btn {
-      margin-top: 28px;
-      padding: 14px 30px;
-      border: none;
-      border-radius: 50px;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      background: linear-gradient(90deg, #e83e91, #ff70b5);
-      box-shadow: 0 8px 30px rgba(255,70,160,.35);
-      cursor: pointer;
-      transition: .3s;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px) scale(1.05);
-    }
-
-    .secret {
-      display: none;
-      margin-top: 25px;
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(255,100,180,.08);
-      border: 1px solid rgba(255,150,210,.15);
-      line-height: 1.8;
-      animation: reveal .8s ease forwards;
-    }
-
-    @keyframes reveal {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .signature {
-      margin-top: 22px;
-      color: #ffacd2;
-      font-size: 14px;
-    }
-
-    /* Intro */
-    .intro {
-      position: fixed;
-      z-index: 20;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #080009;
-      animation: introOut 2s 3.5s forwards;
-      pointer-events: none;
-    }
-
-    .introText {
-      text-align: center;
-      font-size: 28px;
-      animation: introText 3s ease forwards;
-    }
-
-    .introText span {
-      display: block;
-      margin-top: 12px;
-      font-size: 18px;
-      color: #ff91c5;
-    }
-
-    @keyframes introText {
-      0% {
-        opacity: 0;
-        transform: scale(.7);
-      }
-      30%, 70% {
-        opacity: 1;
-        transform: scale(1);
-      }
-      100% {
-        opacity: 0;
-        transform: scale(1.15);
-      }
-    }
-
-    @keyframes introOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    @media(max-width: 400px) {
-      h1 { font-size: 29px; }
-      .heartBig { font-size: 65px; }
-      .message { font-size: 15px; }
-    }
-  </style>
+</style>
 </head>
+
 
 <body>
 
-  <!-- Opening Animation -->
-  <div class="intro">
-    <div class="introText">
-      একটা কথা ছিল... ❤️
-      <span>শুধু Zaifa-র জন্য</span>
+
+<!-- =========================
+     SORRY 1 → 100
+========================= -->
+
+<div class="sorryScreen" id="sorryScreen"></div>
+
+
+<!-- =========================
+     MAIN MESSAGE
+========================= -->
+
+<div class="card" id="card">
+
+    <div class="bigHeart">
+        ❤️
     </div>
-  </div>
 
-  <!-- Stars -->
-  <div class="stars" id="stars"></div>
+    <h1>
+        Zaifa...
+    </h1>
 
-  <!-- Floating Hearts -->
-  <div class="hearts" id="hearts"></div>
+    <div class="wife">
+        আমার লাল টুকটুকে বউ ❤️
+    </div>
 
-  <main class="screen">
-    <div class="card">
 
-      <div class="heartBig">❤️</div>
+    <div class="message">
 
-      <div class="small">FOR SOMEONE SPECIAL</div>
+        জানি, আমার ভুল হয়েছে। 🥺
 
-      <h1>Zaifa...</h1>
-
-      <div class="typing" id="typing"></div>
-
-      <div class="message">
-        জানি, আমার কোনো কথা বা কাজে তোমার মন খারাপ হয়েছে। 🥺
         <br><br>
 
-        হয়তো সবসময় নিজের কথাগুলো ঠিকভাবে বোঝাতে পারি না,
-        কিন্তু তোমাকে কষ্ট দেওয়ার ইচ্ছা আমার কখনোই ছিল না।
+        তোমার মন খারাপ করার জন্য
+        সত্যিই আমার অনেক খারাপ লাগছে।
+
         <br><br>
 
-        তাই আজ শুধু একটা কথাই বলতে চাই—
+        কখনো কখনো মানুষ নিজের ভুলটা
+        বুঝতে একটু দেরি করে,
+        কিন্তু তোমাকে কষ্ট দেওয়ার
+        ইচ্ছা আমার কখনোই ছিল না।
+
+        <br><br>
+
+        <span class="highlight">
+            আমার লাল টুকটুকে বউ,
+            আমাকে মাফ করে দিও। ❤️
+        </span>
+
+        <br><br>
+
+        রাগ থাকলে রাগ করো,
+        অভিমান থাকলে অভিমান করো...
+
         <br>
 
-        <span class="highlight">
-          আমার লাল টুকটুকে বউ, আমাকে মাফ করে দিও। ❤️
-        </span>
-
-        <br><br>
-
-        রাগ থাকলে একটু রাগ করে থেকো,
-        অভিমান থাকলে অভিমান করো...
-        কিন্তু আমার সাথে কথা বলা বন্ধ কোরো না। 🥺
-      </div>
-
-      <button class="btn" onclick="showSorry()">
-        আমার একটা কথা আছে 💌
-      </button>
-
-      <div class="secret" id="secret">
-        আমি নিখুঁত নই,
-        ভুল আমার হতেই পারে।
-        কিন্তু তোমাকে কষ্ট দিয়ে সেই ভুলটাকে
-        ঠিক মনে করার মানুষও আমি নই।
-        <br><br>
-
-        <span class="highlight">
-          সত্যিই Sorry, Zaifa। ❤️
-        </span>
-
-        <br><br>
-
-        <b>তোমার লাল টুকটুকে বউ-এর কাছে ক্ষমাপ্রার্থী। 🌸</b>
-      </div>
-
-      <div class="signature">
-        Made with a genuine apology ❤️
-      </div>
+        কিন্তু আমার সাথে
+        কথা বলা বন্ধ কোরো না। 🥺
 
     </div>
-  </main>
 
-  <script>
 
-    /* Typing animation */
-    const text = "আমার লাল টুকটুকে বউ ❤️";
-    const typing = document.getElementById("typing");
+    <button onclick="showSecret()">
+        আরেকটা কথা আছে... 💌
+    </button>
 
-    let i = 0;
 
-    function typeText() {
-      if (i < text.length) {
-        typing.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeText, 100);
-      }
+    <div class="secret" id="secret">
+
+        তুমি আমার কাছে গুরুত্বপূর্ণ। ❤️
+
+        <br><br>
+
+        আমি নিখুঁত নই,
+        ভুল আমার হতেই পারে।
+
+        কিন্তু ভুল বুঝতে পারলে
+        সেটা ঠিক করার চেষ্টা করবো।
+
+        <br><br>
+
+        <span class="highlight">
+            সত্যিই Sorry, Zaifa। ❤️
+        </span>
+
+        <br><br>
+
+        <b>
+            আমার লাল টুকটুকে বউ,
+            আর রাগ করে থেকো না। 🥺🌸
+        </b>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =================================
+   SORRY 1 → 100 ANIMATION
+================================= */
+
+const sorryScreen =
+document.getElementById("sorryScreen");
+
+const card =
+document.getElementById("card");
+
+let number = 1;
+
+const total = 100;
+
+function showNextSorry(){
+
+    if(number > total){
+
+        // 100 শেষ হলে main card আসবে
+
+        setTimeout(()=>{
+
+            card.classList.add("show");
+
+        },500);
+
+        return;
     }
 
-    setTimeout(typeText, 3800);
+
+    const sorry =
+    document.createElement("div");
+
+    sorry.className="sorry";
+
+    sorry.innerHTML=
+    "Sorry " + number + " ❤️";
 
 
-    /* Stars */
-    const stars = document.getElementById("stars");
-
-    for (let i = 0; i < 70; i++) {
-      const star = document.createElement("div");
-      star.className = "star";
-
-      star.style.left = Math.random() * 100 + "%";
-      star.style.top = Math.random() * 100 + "%";
-      star.style.animationDelay = Math.random() * 3 + "s";
-
-      stars.appendChild(star);
-    }
+    sorryScreen.appendChild(sorry);
 
 
-    /* Floating hearts */
-    const hearts = document.getElementById("hearts");
+    // Animation start
 
-    const emojis = ["❤️", "💗", "💕", "💖", "💓"];
+    setTimeout(()=>{
 
-    for (let i = 0; i < 25; i++) {
-      const heart = document.createElement("div");
+        sorry.classList.add("animate");
 
-      heart.className = "heart";
-      heart.innerHTML =
-        emojis[Math.floor(Math.random() * emojis.length)];
-
-      heart.style.left = Math.random() * 100 + "%";
-      heart.style.animationDuration =
-        (5 + Math.random() * 6) + "s";
-
-      heart.style.animationDelay =
-        Math.random() * 8 + "s";
-
-      heart.style.fontSize =
-        (15 + Math.random() * 20) + "px";
-
-      hearts.appendChild(heart);
-    }
+    },30);
 
 
-    /* Secret message */
-    function showSorry() {
+    // পরের Sorry
 
-      const secret = document.getElementById("secret");
+    setTimeout(()=>{
 
-      secret.style.display = "block";
+        sorry.remove();
 
-      document.querySelector(".btn").innerText =
-        "এই কথাটা মনে রেখো ❤️";
+        number++;
 
-      // Extra hearts
-      for (let i = 0; i < 12; i++) {
+        showNextSorry();
 
-        const heart = document.createElement("div");
+    },750);
 
-        heart.className = "heart";
-        heart.innerHTML = "❤️";
+}
 
-        heart.style.left = (40 + Math.random() * 20) + "%";
-        heart.style.bottom = "30%";
-        heart.style.animationDuration = "3s";
 
-        hearts.appendChild(heart);
-      }
-    }
+/* Start */
 
-  </script>
+showNextSorry();
+
+
+
+/* =================================
+   FLOATING HEARTS
+================================= */
+
+function createFloatingHeart(){
+
+    const heart =
+    document.createElement("div");
+
+    heart.className=
+    "floatingHeart";
+
+    const emojis=[
+        "❤️",
+        "💗",
+        "💕",
+        "💖",
+        "💓",
+        "🌸"
+    ];
+
+    heart.innerHTML=
+    emojis[
+        Math.floor(
+            Math.random()*emojis.length
+        )
+    ];
+
+
+    heart.style.left=
+    Math.random()*100+"vw";
+
+
+    heart.style.fontSize=
+    (15+Math.random()*25)+"px";
+
+
+    heart.style.animationDuration=
+    (5+Math.random()*5)+"s";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },10000);
+}
+
+
+/* প্রতি 400ms-এ একটি heart */
+
+setInterval(
+    createFloatingHeart,
+    400
+);
+
+
+
+/* =================================
+   SECRET MESSAGE
+================================= */
+
+function showSecret(){
+
+    const secret =
+    document.getElementById("secret");
+
+    secret.style.display="block";
+
+}
+
+</script>
 
 </body>
 </html>
