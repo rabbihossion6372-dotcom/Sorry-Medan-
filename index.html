@@ -32,7 +32,6 @@ html{
 body{
     width:100%;
     min-height:100vh;
-
     overflow-x:hidden;
     overflow-y:auto;
 
@@ -53,38 +52,22 @@ body{
     sans-serif;
 }
 
-
-/* ================================
-   CANVAS
-================================ */
-
 #canvas{
     position:fixed;
     inset:0;
-
     width:100%;
     height:100%;
-
     pointer-events:none;
     z-index:1;
 }
 
-
-/* ================================
-   GLOW
-================================ */
-
 .glow{
     position:fixed;
-
     width:300px;
     height:300px;
-
     left:50%;
     top:15%;
-
     transform:translateX(-50%);
-
     border-radius:50%;
 
     background:
@@ -95,43 +78,31 @@ body{
     );
 
     filter:blur(25px);
-
     pointer-events:none;
     z-index:0;
 }
 
 
-/* ================================
-   SORRY 1 → 100
-================================ */
+/* SORRY 1 → 10 */
 
 #sorryStage{
-
     position:fixed;
-
     inset:0;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
     z-index:20;
-
     pointer-events:none;
 }
 
 .sorry{
-
     position:absolute;
-
     width:100%;
-
     text-align:center;
 
-    font-size:
-    clamp(42px,12vw,75px);
-
+    font-size:clamp(42px,12vw,75px);
     font-weight:700;
 
     color:#ffacd5;
@@ -140,56 +111,37 @@ body{
     0 0 12px #ff3e9d,
     0 0 35px #ff3e9d,
     0 0 70px rgba(255,40,150,.7);
-
 }
 
 
-/* ================================
-   MAIN
-================================ */
+/* MAIN */
 
 #main{
-
     position:relative;
-
     z-index:5;
 
     width:100%;
-
     min-height:100vh;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
-    padding:
-    25px 15px;
-
+    padding:25px 15px;
 }
 
 
-/* ================================
-   CARD
-================================ */
+/* CARD */
 
 .card{
-
-    width:
-    min(450px,100%);
-
-    padding:
-    32px 22px;
+    width:min(450px,100%);
+    padding:32px 22px;
 
     text-align:center;
-
     border-radius:28px;
 
-    background:
-    rgba(255,255,255,.075);
-
-    border:
-    1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.075);
+    border:1px solid rgba(255,255,255,.16);
 
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
@@ -202,16 +154,12 @@ body{
     transform:
     translateY(40px)
     scale(.9);
-
 }
 
 
-/* ================================
-   HEART
-================================ */
+/* HEART */
 
 .bigHeart{
-
     display:inline-block;
 
     font-size:
@@ -222,16 +170,12 @@ body{
         0 0 22px
         rgba(255,60,160,.7)
     );
-
 }
 
 
-/* ================================
-   TITLE
-================================ */
+/* TITLE */
 
 .title{
-
     margin-top:10px;
 
     font-size:
@@ -250,11 +194,9 @@ body{
     background-size:200%;
 
     -webkit-background-clip:text;
-
     color:transparent;
 
-    animation:
-    shine 3s linear infinite;
+    animation:shine 3s linear infinite;
 }
 
 @keyframes shine{
@@ -266,16 +208,12 @@ body{
     100%{
         background-position:200%;
     }
-
 }
 
 
-/* ================================
-   WIFE
-================================ */
+/* WIFE */
 
 .wife{
-
     margin-top:8px;
 
     font-family:
@@ -286,24 +224,16 @@ body{
     clamp(19px,6vw,24px);
 
     color:#ff9dcc;
-
     font-weight:700;
-
 }
 
 
-/* ================================
-   LINE
-================================ */
+/* LINE */
 
 .line{
-
     width:70px;
-
     height:2px;
-
-    margin:
-    17px auto;
+    margin:17px auto;
 
     background:
     linear-gradient(
@@ -312,16 +242,12 @@ body{
         #ff75b5,
         transparent
     );
-
 }
 
 
-/* ================================
-   MESSAGE
-================================ */
+/* MESSAGE */
 
 .message{
-
     font-family:
     "Noto Serif Bengali",
     serif;
@@ -330,41 +256,27 @@ body{
     clamp(14px,4.2vw,17px);
 
     line-height:1.9;
-
     color:#f7e8f0;
-
 }
-
 
 .highlight{
-
     color:#ffacd2;
-
     font-weight:700;
-
 }
 
 
-/* ================================
-   BUTTON
-================================ */
+/* BUTTON */
 
 .btn{
-
     display:block;
 
     width:100%;
-
     max-width:280px;
 
-    margin:
-    25px auto 0;
-
-    padding:
-    14px 20px;
+    margin:25px auto 0;
+    padding:14px 20px;
 
     border:0;
-
     border-radius:50px;
 
     color:white;
@@ -385,27 +297,21 @@ body{
     sans-serif;
 
     font-size:15px;
-
     font-weight:600;
 
     cursor:pointer;
 
     -webkit-tap-highlight-color:
     transparent;
-
 }
 
 
-/* ================================
-   SECRET
-================================ */
+/* SECRET */
 
 .secret{
-
     display:none;
 
     margin-top:22px;
-
     padding:18px;
 
     border-radius:20px;
@@ -425,55 +331,77 @@ body{
     clamp(14px,4vw,16px);
 
     line-height:1.9;
-
     color:#ffdbea;
-
 }
 
 
-/* ================================
-   FLOATING HEARTS
-================================ */
+/* MUSIC BUTTON */
 
-.floatHeart{
-
+.musicBtn{
     position:fixed;
 
+    top:15px;
+    right:15px;
+
+    z-index:200;
+
+    display:none;
+
+    padding:10px 16px;
+
+    border:1px solid
+    rgba(255,255,255,.2);
+
+    border-radius:30px;
+
+    color:white;
+
+    background:
+    rgba(255,70,160,.2);
+
+    backdrop-filter:blur(10px);
+
+    font-family:
+    "Poppins",
+    sans-serif;
+
+    font-size:13px;
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+
+/* FLOATING HEARTS */
+
+.floatHeart{
+    position:fixed;
     bottom:-50px;
 
     z-index:2;
-
     pointer-events:none;
-
 }
 
 
-/* ================================
-   SMALL PHONE
-================================ */
+/* SMALL PHONE */
 
 @media(max-width:380px){
 
     #main{
-        padding:
-        18px 10px;
+        padding:18px 10px;
     }
 
     .card{
-        padding:
-        28px 18px;
+        padding:28px 18px;
     }
 
     .message{
         line-height:1.8;
     }
-
 }
 
 
-/* ================================
-   VERY SMALL HEIGHT
-================================ */
+/* VERY SMALL HEIGHT */
 
 @media(max-height:650px){
 
@@ -483,7 +411,6 @@ body{
         padding-top:20px;
         padding-bottom:20px;
     }
-
 }
 
 </style>
@@ -493,44 +420,53 @@ body{
 <body>
 
 
+<!-- MUSIC -->
+
+<audio
+    id="music"
+    src="ssstik.io_1788595537943.mp3"
+    preload="auto"
+    loop>
+</audio>
+
+
+<button
+    class="musicBtn"
+    id="musicBtn"
+    type="button"
+    onclick="startMusic()">
+
+    🎵 Play Music
+
+</button>
+
+
 <canvas id="canvas"></canvas>
 
 <div class="glow" id="glow"></div>
 
-
-<!-- ================================
-     SORRY SEQUENCE
-================================ -->
-
 <div id="sorryStage"></div>
 
 
-<!-- ================================
-     MAIN CARD
-================================ -->
+<!-- MAIN CARD -->
 
 <main id="main">
 
 <div class="card" id="card">
 
-
     <div class="bigHeart" id="heart">
         ❤️
     </div>
-
 
     <div class="title">
         Zaifa...
     </div>
 
-
     <div class="wife">
         আমার লাল টুকটুকে বউ ❤️
     </div>
 
-
     <div class="line"></div>
-
 
     <div class="message">
 
@@ -610,7 +546,6 @@ body{
 
     </div>
 
-
 </div>
 
 </main>
@@ -618,9 +553,52 @@ body{
 
 <script>
 
-/* =================================
-   SORRY 1 → 100
-================================= */
+/* MUSIC */
+
+const music =
+document.getElementById("music");
+
+const musicBtn =
+document.getElementById("musicBtn");
+
+
+function startMusic(){
+
+    music.play()
+    .then(function(){
+
+        musicBtn.style.display="none";
+
+    })
+    .catch(function(){
+
+        musicBtn.style.display="block";
+
+    });
+
+}
+
+
+window.addEventListener("load",function(){
+
+    music.volume=0.65;
+
+    music.play()
+    .then(function(){
+
+        musicBtn.style.display="none";
+
+    })
+    .catch(function(){
+
+        musicBtn.style.display="block";
+
+    });
+
+});
+
+
+/* SORRY 1 → 10 */
 
 const stage =
 document.getElementById("sorryStage");
@@ -628,32 +606,41 @@ document.getElementById("sorryStage");
 const card =
 document.getElementById("card");
 
-let number = 1;
+let number=1;
 
-const total = 10;
+const total=10;
 
 
 function nextSorry(){
 
-    if(number > total){
+    if(number>total){
 
         gsap.to(stage,{
+
             opacity:0,
+
             duration:.7,
+
             onComplete:function(){
 
                 stage.style.display="none";
 
                 gsap.to(card,{
+
                     opacity:1,
                     y:0,
                     scale:1,
+
                     duration:1.2,
+
                     ease:"power3.out"
+
                 });
 
                 heartbeat();
+
             }
+
         });
 
         return;
@@ -682,7 +669,9 @@ function nextSorry(){
         {
             opacity:1,
             scale:1,
+
             duration:.25,
+
             ease:"back.out(2)"
         }
     );
@@ -714,15 +703,12 @@ function nextSorry(){
 }
 
 
-/* Start */
+/* START */
 
 nextSorry();
 
 
-
-/* =================================
-   HEARTBEAT
-================================= */
+/* HEARTBEAT */
 
 function heartbeat(){
 
@@ -743,10 +729,7 @@ function heartbeat(){
 }
 
 
-
-/* =================================
-   SECRET MESSAGE
-================================= */
+/* SECRET MESSAGE */
 
 function revealMessage(){
 
@@ -757,13 +740,9 @@ function revealMessage(){
     document.getElementById("btn");
 
 
-    /* Button text changes */
-
     btn.textContent =
     "এই কথাটা মনে রেখো ❤️";
 
-
-    /* Show message */
 
     secret.style.display="block";
 
@@ -781,23 +760,33 @@ function revealMessage(){
             opacity:1,
             y:0,
             scale:1,
+
             duration:.8,
+
             ease:"power3.out"
         }
     );
 
 
-    /* Heart explosion */
-
     burstHearts();
+
+
+    setTimeout(function(){
+
+        secret.scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"center"
+
+        });
+
+    },300);
 
 }
 
 
-
-/* =================================
-   HEART BURST
-================================= */
+/* HEART BURST */
 
 function burstHearts(){
 
@@ -809,13 +798,10 @@ function burstHearts(){
         h.textContent="❤️";
 
         h.style.position="fixed";
-
         h.style.left="50%";
-
         h.style.top="50%";
 
         h.style.zIndex="100";
-
         h.style.pointerEvents="none";
 
         document.body.appendChild(h);
@@ -861,10 +847,7 @@ function burstHearts(){
 }
 
 
-
-/* =================================
-   FLOATING HEARTS
-================================= */
+/* FLOATING HEARTS */
 
 const emojis=[
     "❤️",
@@ -932,17 +915,13 @@ setInterval(
 );
 
 
-
-/* =================================
-   CANVAS PARTICLES
-================================= */
+/* CANVAS PARTICLES */
 
 const canvas =
 document.getElementById("canvas");
 
 const ctx =
 canvas.getContext("2d");
-
 
 let particles=[];
 
@@ -1045,10 +1024,7 @@ function animateParticles(){
 animateParticles();
 
 
-
-/* =================================
-   MOVING GLOW
-================================= */
+/* MOVING GLOW */
 
 gsap.to("#glow",{
 
